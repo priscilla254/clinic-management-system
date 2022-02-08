@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<h2>List of doctors </h2>
+
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope='col'>ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">specialty</th>
+        <th></th>
+        <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for doctors in doctor_list%}
+      <tr>
+        <td>{{doctors.pk}}</td>
+        <td>{{doctors.name}}</td>
+        <td>{{doctors.specialty}}</td>
+        
+        <td><button type="button" class="btn btn-secondary" >
+            <a href="{%url 'update' doctors.pk %}">Update</a></button></td>
+        <td><button type="button" class="btn btn-danger" >
+            <a href="">Delete</a>
+        </button></td>
+      </tr>
+{%endfor%}
+</tbody>
+
+{%endblock%}
